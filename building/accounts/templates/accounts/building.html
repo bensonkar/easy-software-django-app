@@ -1,0 +1,35 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+<div>
+	<br>
+
+	<a class="btn btn-primary" href="{% url 'create' %}">Create Building</a>
+</div>
+<br />
+<table class="table table-bordered">
+    <thead class="alert-warning">
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+			<th>Owner</th>
+			<th>Unit Count</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for building in buildings %}
+        <tr>
+            <td>{{ building.name }}</td>
+            <td>{{ building.location }}</td>
+			<td>{{ building.owner }}</td>
+            <td>{{ building.unitscount }}</td>
+			
+            <td><center><a class="btn btn-sm btn-warning" href="edit/update/{{ building.id }}"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
+				<a class="btn btn-sm btn-danger" href="/delete/{{ building.id }}"><span class="glyphicon glyphicon-trash"></span> Delete</a></center></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

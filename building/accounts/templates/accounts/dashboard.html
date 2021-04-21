@@ -1,0 +1,43 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+{%  include 'accounts/status.html' %}
+
+<br>
+
+<div class="row">
+	
+	<div class="col-md-7">
+		
+		<hr>
+		<div class="card card-body">
+			<h5>Buildings List</h5>
+			<table class="table table-sm">
+				<tr>
+					
+					<th>Name</th>
+					<th>Location</th>
+					<th>Owner</th>
+					<th>Unit Counts</th>
+				</tr>
+
+				{% for building in buildings %}
+					<tr>
+						
+						<td>{{building.name}}</td>
+						<td>{{building.location}}</td>
+						<td>{{building.owner}}</td>
+						<td>{{building.unitscount}}</td>
+					</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+	
+</div>
+
+{% endblock %}
+

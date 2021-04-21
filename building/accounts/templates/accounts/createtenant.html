@@ -1,0 +1,30 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <form class="form"  action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <h2>Create a new Tenant</h2>
+                <label for="firstname">Name</label>
+                <input type="text" name="name" class="form-control" style="width:80%;" required="required"/>
+                <label for="lastname">Email</label>
+                <input type="email" name="email" class="form-control" style="width:80%;" required="required"/>
+                <label for="lastname">Phone</label>
+                <input type="text" name="phone" class="form-control" style="width:80%;" required="required"/>
+                <label for="lastname">Next of Kin</label>
+                <input type="text" name="nextofkin" class="form-control" style="width:80%;" required="required"/>
+                <br>
+                <button type="submit" class="btn btn-md btn-primary"><span class="glyphicon glyphicon-plus"></span> Save</button>
+            </div>
+        </form>
+        <br />
+    </div>
+
+    <div class="col-md-3"></div>
+</div>
+
+
+{% endblock content %}

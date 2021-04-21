@@ -1,0 +1,35 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+<div>
+	<br>
+
+	<a class="btn btn-primary" href="{% url 'addtenant' %}">Create Tenant</a>
+</div>
+<br />
+<table class="table table-bordered">
+    <thead class="alert-warning">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+			<th>Phone</th>
+			<th>Next of Kin</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tenant in tenants %}
+        <tr>
+            <td>{{ tenant.name }}</td>
+            <td>{{ tenant.email }}</td>
+			<td>{{ tenant.Phone }}</td>
+            <td>{{ tenant.nextofkin }}</td>
+			
+            <td><center><a class="btn btn-sm btn-warning" href="edit/update/{{ building.id }}"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
+				<a class="btn btn-sm btn-danger" href="/deletetenant/{{ tenant.id }}"><span class="glyphicon glyphicon-trash"></span> Delete</a></center></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

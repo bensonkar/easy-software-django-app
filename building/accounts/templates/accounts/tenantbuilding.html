@@ -1,0 +1,37 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+<div>
+	<br>
+
+	<a class="btn btn-primary" href="{% url 'createtenantbuilding' %}">Create TenantBuilding</a>
+</div>
+<br />
+<table class="table table-bordered">
+    <thead class="alert-warning">
+        <tr>
+            <th>Building</th>
+            <th>Tenant</th>
+			<th>Chekin Date</th>
+			<th>Contract Amount</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tenantbuilding in tenantbuildings %}
+        <tr>
+            <td>{{ tenantbuilding.building }}</td>
+            <td>{{ tenantbuilding.tenant }}</td>
+			<td>{{ tenantbuilding.chekindate }}</td>
+            <td>{{ tenantbuilding.contractAmount }}</td>
+            <td>{{ tenantbuilding.status }}</td>
+			
+            <td><center><a class="btn btn-sm btn-warning" href="edit/update/{{ building.id }}"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
+				<a class="btn btn-sm btn-danger" href="/deletetenantbuilding/{{ tenant.id }}"><span class="glyphicon glyphicon-trash"></span> Delete</a></center></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}
